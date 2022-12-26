@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root
+{
+    --blue: #287bff;
+    --white: #fff;
+    --grey: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+}
+
+body
+{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container
+{
+    position: relative;
+    width: 100%;
+}
+
+.navigation
+{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--blue);
+    border-left: 10px solid var(--blue);
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.navigation.active
+{
+    width: 80px;
+}
+
+.navigation ul
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navigation ul li,
+.navigation ul li a.active
+{
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered,
+.navigation ul li a.active
+{
+    background: var(--white);
+}
+
+.navigation ul li:nth-child(1)
+{
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+
+.navigation ul li a
+{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a,
+.navigation ul li a.active
+{
+    color: var(--blue);
+}
+
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before,
+.navigation ul li a.active::before
+{
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after,
+.navigation ul li a.active::after
+{
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+.navigation ul li a .icon
+{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 70px;
+    text-align: center;
+}
+
+.navigation ul li a .icon ion-icon  
+{
+    font-size: 1.75em;
+}
+
+.navigation ul li a .icon i  
+{
+    font-size: 1.75em;
+}
+
+.navigation ul li a .title
+{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+/*---main---*/
+.main
+{
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background: var(--white);
+    transition: 0.5s;
+}
+
+.main.active
+{
+    width: calc(100% - 300px);
+    left: 80px;
+}
+
+.topbar
+{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.toggle
+{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+}
+
+.search
+{
+    position: relative;
+    width: 400px;
+    margin-top: 10px;
+}
+
+.search label
+{
+    position: relative;
+    width: 100%;
+}
+
+.search label input
+{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid var(--black2);
+}
+
+.search label ion-icon
+{
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 1.2em;
+}
+
+.detail
+{
+    position: relative;
+    width: 130%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 30px;
+    /* margin-top: 10px; */
+}
+
+.detail .recentProducts
+{
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+
+.cardHeader
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cardHeader h2  
+{
+    font-weight: 600;
+    color: var(--blue);
+}
+
+.btn
+{
+    position: relative;
+    padding: 5px 10px;
+    background: var(--blue);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+}
+
+.detail table
+{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.detail table thead td
+{
+    font-weight: 600;
+}
+
+.detail table tbody tr td button
+{
+    background: none;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.detail .recentProducts table tr
+{
+    color: var(--black1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);    
+}
+
+.detail .recentProducts table tbody img
+{
+    width: 80px;
+}
+
+.detail .recentProducts table tbody tr:last-child
+{
+    border-bottom: none;
+}
+
+.detail .recentProducts table tbody tr:hover,
+.detail .recentProducts table tbody tr:hover a,
+.detail .recentProducts table tbody tr:hover button
+{
+    background: var(--blue);
+    color: var(--white)
+}
+
+.detail .recentProducts table tr td
+{
+    padding: 10px;
+}
+
+a, .text-link {
+    text-decoration: none;
+    background: transparent;
+}
+
+/* .detail .recentProducts table tr td:last-child
+{   
+    text-align: end;
+}
+
+.detail .recentProducts table tr td:last-child(2)
+{   
+    text-align: end;
+}
+
+.detail .recentProducts table tr td:last-child(3)
+{   
+    text-align: center;
+} */
+
+.pagigation
+{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagigation a
+{
+    text-decoration: none;
+    background-color: var(--blue);
+    padding: 15px 20px;
+    background-repeat: 4px;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 50px;
+}
+
+.pagigation a ion-icon
+{
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: -10px;
+}
+
+@media (max-width: 991px)
+{
+    .navigation
+    {
+        left: -300px;
+    }
+    .navigation.active
+    {
+        width: 300px;
+        left: 0;
+    }
+    .main
+    {
+        width: 100%;
+        left: 0;
+    }
+    .search
+    {
+        margin-left: 60px;
+    }
+    .main.active
+    {
+        left: 300px;
+    }
+    .cardBox
+    {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width: 768px)
+{
+    .detail
+    {
+        grid-template-columns: repeat(1,1fr);
+    }
+    .recentProducts
+    {
+        overflow-x: auto;
+    }
+    .status.inProgress
+    {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px)
+{
+    .cardBox
+    {
+        grid-template-columns: repeat(1,1fr);
+    }
+    .cardHeader h2
+    {
+        font-size: 20px;
+    }
+    .navigation
+    {
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+    .navigation.active
+    {
+        width: 100%;
+        left: 0;
+    }
+    .toggle
+    {
+        z-index: 10001;
+    }
+    .main.active .toggle
+    {
+        position: fixed;
+        right: 0;
+        left: initial;
+        color: var(--white);
+    }
+}
